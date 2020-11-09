@@ -15,12 +15,10 @@ function Search({changeUserList} : Props) {
   };
 
   const debounce = useCallback(
-    (_searchVal) => {
-      _.debounce((_searchVal: string) => {
+    _.debounce((_searchVal: string) => {
         changeUserList(_searchVal)
-    }, 400)
-    },    
-    [changeUserList]
+    }, 400),
+    []
   );
 
   return (          
