@@ -1,21 +1,11 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
-
 import _ from "lodash";
-
-import {useState,useEffect, useCallback} from 'react';
-
-import {getUserList} from './modules/getUsers'
-import {User} from './modules/User'
-import Search from './components/Search'
-// import {FilteredUsersList} from './modules/userSearch'
-
-
-import {StyledLi, StyledApp, StyledMainContent, StyledUl, StyledListContainer, StyledInput, StyledInputContainer} from './App.styled';
-import { isEmptyStatement } from 'typescript';
+import React, { useState } from 'react';
+import './App.css';
+import { StyledApp, StyledInputContainer, StyledListContainer, StyledMainContent, StyledUl } from './App.styled';
+import Search from './components/Search';
 import UserComponent from './components/UserComponent';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { getUserList } from './modules/getUsers';
+import { User } from './modules/User';
 
 const entireUserList: User[] = getUserList();
 
@@ -39,33 +29,24 @@ function App() {
     let _newUserList: User[] = newUserList
     
     _newUserList.forEach(element =>{
-      if(element.id != user.id)
+      if(element.id !== user.id)
       {
         element.clicked += 1;
       }
     })
 
     _newUserList = newUserList;
-    // console.log("_newUserList_",newUserList)
     setNewUserList([..._newUserList]);
   }
 
   const handleDeleteFromList = (index:number) =>{   
     
-    console.log(index);
-    let _newUserList: User[] = newUserList
-    // console.log(index);
-    // console.log(newUserList[index]);     
-    _newUserList.splice(_.indexOf(_newUserList,_.find(_newUserList,{id:index})),1);    
-    _newUserList = newUserList;            
-    setNewUserList([..._newUserList]);
+    const _viewingList : User[] = newUserList;
+    entireUserList.splice(_.indexOf(entireUserList,_.find(entireUserList,{id:index})),1);          
+    _viewingList.splice(_.indexOf(_viewingList,_.find(_viewingList,{id:index})),1);       
+    setNewUserList([..._viewingList]);
 
   }
-
-  useEffect(()=>{
-    // console.log("newUserList", newUserList)
-  }, [newUserList])
-
 
 
   return (

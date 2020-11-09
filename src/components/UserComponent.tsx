@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
-import {StyledLi, StyledApp, StyledMainContent, StyledUl, StyledInput, StyledLiContent, StyledDeleteBtn, StyledLiCounter} from '../App.styled';
-import {User} from "../modules/User"
+import React from 'react';
+import { StyledDeleteBtn, StyledLi, StyledLiContent, StyledLiCounter } from '../App.styled';
+import { User } from "../modules/User";
 
 interface Props {
   handleDeleteFromList: (e:any) => void
@@ -8,8 +8,6 @@ interface Props {
   user: User
   index: number
 }
-
-
 
 function UserComponent({handleDeleteFromList, handleClicked, user, index} : Props) {
 
@@ -37,6 +35,5 @@ function UserComponent({handleDeleteFromList, handleClicked, user, index} : Prop
   </>
   );
 }
-
 
 export default UserComponent;

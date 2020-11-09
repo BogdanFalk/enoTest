@@ -1,6 +1,4 @@
-import styled, { css } from 'styled-components'
-
-
+import styled from 'styled-components'
 
 export const StyledApp = styled.div`
 // position:fixed;
@@ -123,7 +121,8 @@ font-size: 1.1rem;
 
 export const StyledDeleteBtn = styled.button`
 background-color:transparent;
-border:0px;
+border: 0;
+outline: 0;
 cursor:pointer;
 height:25px;
 line-height:17px;
